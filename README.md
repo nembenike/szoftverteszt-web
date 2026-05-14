@@ -11,3 +11,8 @@ Szoftvertesztelés tantárgyhoz Webes játékok.
 Egy weboldalt szeretnénk csinálni, amiben több egyszerű kétszemélyes játékot lehet játszani.
 A meccsek eredményét számolná és így lehetne egymás ellen több kört játszani, bajnokság szerűen.
 Csinálunk egy alap honlapot, ahonnan kilehet választani a játékokat, amik több aloldalon vannak.
+---
+## Csapattagok:
+- Berényi Bence
+- Bóta Milán
+- Garay Ágoston
