@@ -7,6 +7,14 @@ Szoftvertesztelés tantárgyhoz Webes játékok.
   3. Készíts egy Pull Requestet
   4. Várd meg amíg be lesz mergelve
 
+## Használat:
+```
+git clone https://github.com/nembenike/szoftverteszt-web
+cd szoftverteszt-web
+npm i
+npm run dev
+```
+
 ---
 Egy weboldalt szeretnénk csinálni, amiben több egyszerű kétszemélyes játékot lehet játszani.
 A meccsek eredményét számolná és így lehetne egymás ellen több kört játszani, bajnokság szerűen.
