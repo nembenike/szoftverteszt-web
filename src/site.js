@@ -14,10 +14,10 @@ const games = [
   },
   {
     slug: 'game-2.html',
-    title: 'Game Two',
-    label: '1v1 Duel 02',
-    description: 'Use this page for the second two-player game mode.',
-    summary: 'A separate page for the second game shell.',
+    title: 'Snake game',
+    label: 'Snake game',
+    description: 'This is a simple snake copy game',
+    summary: 'Yeah you can play snake',
     accent: 'from-emerald-400 to-teal-500',
     features: [
       'Independent place for its own rules',
