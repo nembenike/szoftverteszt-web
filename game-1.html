@@ -1,13 +1,419 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
     <title>Game One | Szoftverteszt Web</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+
+        font-family: 'Manrope', sans-serif;
+
+        background:
+          radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.16), transparent 26%),
+          linear-gradient(180deg, #07111f 0%, #020617 100%);
+
+        color: rgb(241 245 249);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 2rem;
+      }
+
+      .hero-card {
+        width: 100%;
+        max-width: 900px;
+
+        overflow: hidden;
+
+        border-radius: 2rem;
+
+        border: 1px solid rgba(255,255,255,0.1);
+
+        background: rgba(255,255,255,0.05);
+
+        padding: 2rem;
+
+        backdrop-filter: blur(14px);
+
+        box-shadow:
+          0 25px 50px rgba(0,0,0,0.5);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+
+        border-radius: 999px;
+
+        border: 1px solid rgba(103,232,249,0.2);
+
+        background: rgba(103,232,249,0.1);
+
+        padding: 0.35rem 1rem;
+
+        font-size: 0.75rem;
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.24em;
+
+        color: rgb(207 250 254);
+      }
+
+      .display-title {
+        margin-top: 1rem;
+
+        font-family: 'Space Grotesk', sans-serif;
+
+        font-size: 3rem;
+        font-weight: 700;
+
+        line-height: 1.1;
+      }
+
+      .lede {
+        margin-top: 1rem;
+
+        max-width: 700px;
+
+        color: rgb(203 213 225);
+
+        line-height: 1.8;
+      }
+
+      .game-wrapper {
+        margin-top: 3rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .status-banner {
+        border-radius: 1rem;
+
+        border: 1px dashed rgba(103,232,249,0.3);
+
+        background: rgba(103,232,249,0.1);
+
+        padding: 1rem 1.5rem;
+
+        font-weight: 600;
+
+        color: rgb(236 254 255);
+      }
+
+      .board {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 1rem;
+      }
+
+      .game-cell {
+        width: 110px;
+        height: 110px;
+
+        border: 1px solid rgba(255,255,255,0.1);
+
+        border-radius: 1.5rem;
+
+        background: rgba(255,255,255,0.05);
+
+        font-family: 'Space Grotesk', sans-serif;
+
+        font-size: 2.5rem;
+        font-weight: 700;
+
+        color: white;
+
+        cursor: pointer;
+
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .game-cell:hover {
+        transform: translateY(-4px);
+
+        border-color: rgba(103,232,249,0.4);
+
+        background: rgba(255,255,255,0.08);
+      }
+
+      .game-cell.x {
+        color: rgb(103 232 249);
+
+        text-shadow:
+          0 0 15px rgba(103,232,249,0.5);
+      }
+
+      .game-cell.o {
+        color: rgb(251 113 133);
+
+        text-shadow:
+          0 0 15px rgba(251,113,133,0.5);
+      }
+
+      .restart-btn {
+        border: 1px solid rgba(255,255,255,0.1);
+
+        border-radius: 999px;
+
+        background: rgba(255,255,255,0.05);
+
+        padding: 0.8rem 1.4rem;
+
+        color: white;
+
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+      }
+
+      .restart-btn:hover {
+        border-color: rgba(103,232,249,0.4);
+
+        background: rgba(103,232,249,0.1);
+      }
+
+      @media (max-width: 640px) {
+        .display-title {
+          font-size: 2.2rem;
+        }
+
+        .game-cell {
+          width: 85px;
+          height: 85px;
+
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+
+    <main class="hero-card">
+
+      <span class="eyebrow">
+        Mini Game
+      </span>
+
+      <h1 class="display-title">
+        Tic Tac Toe
+      </h1>
+
+      <p class="lede">
+        Klasszikus amőba modern neon stílusban.
+        Mert az emberiség még mindig képes végtelen szórakozást találni
+        három darab X-ben és O-ban.
+      </p>
+
+      <div class="game-wrapper">
+
+        <div
+          id="status"
+          class="status-banner"
+        >
+          X játékos köre
+        </div>
+
+        <div class="board">
+
+          <button class="game-cell" data-index="0"></button>
+          <button class="game-cell" data-index="1"></button>
+          <button class="game-cell" data-index="2"></button>
+
+          <button class="game-cell" data-index="3"></button>
+          <button class="game-cell" data-index="4"></button>
+          <button class="game-cell" data-index="5"></button>
+
+          <button class="game-cell" data-index="6"></button>
+          <button class="game-cell" data-index="7"></button>
+          <button class="game-cell" data-index="8"></button>
+
+        </div>
+
+        <button
+          id="restartBtn"
+          class="restart-btn"
+        >
+          Új játék
+        </button>
+
+      </div>
+
+    </main>
+
+    <script>
+      const cells = document.querySelectorAll('.game-cell');
+
+      const statusText = document.querySelector('#status');
+
+      const restartBtn = document.querySelector('#restartBtn');
+
+      let currentPlayer = 'X';
+
+      let gameActive = true;
+
+      let gameState = [
+        '', '', '',
+        '', '', '',
+        '', '', ''
+      ];
+
+      const winningConditions = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+      ];
+
+      function handleCellClick() {
+        const index = this.dataset.index;
+
+        if (
+          gameState[index] !== '' ||
+          !gameActive
+        ) {
+          return;
+        }
+
+        gameState[index] = currentPlayer;
+
+        this.textContent = currentPlayer;
+
+        this.classList.add(
+          currentPlayer.toLowerCase()
+        );
+
+        checkWinner();
+      }
+
+      function checkWinner() {
+        let roundWon = false;
+
+        for (const condition of winningConditions) {
+          const [a, b, c] = condition;
+
+          if (
+            gameState[a] &&
+            gameState[a] === gameState[b] &&
+            gameState[a] === gameState[c]
+          ) {
+            roundWon = true;
+            break;
+          }
+        }
+
+        if (roundWon) {
+          statusText.textContent =
+            `${currentPlayer} nyert! 🎉`;
+
+          gameActive = false;
+
+          return;
+        }
+
+        if (!gameState.includes('')) {
+          statusText.textContent =
+            'Döntetlen 🤝';
+
+          gameActive = false;
+
+          return;
+        }
+
+        currentPlayer =
+          currentPlayer === 'X'
+            ? 'O'
+            : 'X';
+
+        statusText.textContent =
+          `${currentPlayer} játékos köre`;
+      }
+
+      function restartGame() {
+        currentPlayer = 'X';
+
+        gameActive = true;
+
+        gameState = [
+          '', '', '',
+          '', '', '',
+          '', '', ''
+        ];
+
+        statusText.textContent =
+          'X játékos köre';
+
+        cells.forEach((cell) => {
+          cell.textContent = '';
+
+          cell.classList.remove('x', 'o');
+        });
+      }
+
+      cells.forEach((cell) => {
+        cell.addEventListener(
+          'click',
+          handleCellClick
+        );
+      });
+
+      restartBtn.addEventListener(
+        'click',
+        restartGame
+      );
+    </script>
+
   </body>
 </html>
