@@ -42,10 +42,7 @@
 
         font-family: 'Manrope', sans-serif;
 
-        background:
-          radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.16), transparent 26%),
-          linear-gradient(180deg, #07111f 0%, #020617 100%);
+        background: #07111f;
 
         color: rgb(241 245 249);
 
@@ -78,23 +75,15 @@
 
       .eyebrow {
         display: inline-flex;
-
         border-radius: 999px;
-
-        border: 1px solid rgba(103,232,249,0.2);
-
-        background: rgba(103,232,249,0.1);
-
+        border: 1px solid rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.03);
         padding: 0.35rem 1rem;
-
         font-size: 0.75rem;
         font-weight: 700;
-
         text-transform: uppercase;
-
-        letter-spacing: 0.24em;
-
-        color: rgb(207 250 254);
+        letter-spacing: 0.12em;
+        color: rgb(226 232 240);
       }
 
       .display-title {
@@ -129,16 +118,11 @@
 
       .status-banner {
         border-radius: 1rem;
-
-        border: 1px dashed rgba(103,232,249,0.3);
-
-        background: rgba(103,232,249,0.1);
-
+        border: 1px dashed rgba(255,255,255,0.06);
+        background: rgba(255,255,255,0.03);
         padding: 1rem 1.5rem;
-
         font-weight: 600;
-
-        color: rgb(236 254 255);
+        color: rgb(226 232 240);
       }
 
       .board {
@@ -176,24 +160,16 @@
 
       .game-cell:hover {
         transform: translateY(-4px);
-
-        border-color: rgba(103,232,249,0.4);
-
-        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
       }
 
       .game-cell.x {
-        color: rgb(103 232 249);
-
-        text-shadow:
-          0 0 15px rgba(103,232,249,0.5);
+        color: rgb(203 213 225);
       }
 
       .game-cell.o {
-        color: rgb(251 113 133);
-
-        text-shadow:
-          0 0 15px rgba(251,113,133,0.5);
+        color: rgb(203 213 225);
       }
 
       .restart-btn {
@@ -215,9 +191,8 @@
       }
 
       .restart-btn:hover {
-        border-color: rgba(103,232,249,0.4);
-
-        background: rgba(103,232,249,0.1);
+        border-color: rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
       }
 
       @media (max-width: 640px) {
@@ -249,8 +224,6 @@
 
       <p class="lede">
         Klasszikus amőba modern neon stílusban.
-        Mert az emberiség még mindig képes végtelen szórakozást találni
-        három darab X-ben és O-ban.
       </p>
 
       <div class="game-wrapper">
