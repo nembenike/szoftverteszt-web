@@ -1,13 +1,108 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Two | Szoftverteszt Web</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Snake</title>
+
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+  <main class="page-shell flex items-center justify-center">
+
+    <div class="w-full max-w-5xl">
+
+      <div class="mb-6 flex items-center justify-between">
+
+        <div>
+          <p class="eyebrow">
+            Arcade Game
+          </p>
+
+          <h1 class="display-title mt-4">
+            Snake
+          </h1>
+        </div>
+
+        <div class="flex gap-3">
+
+          <button id="start-btn"
+            class="rounded-full border border-cyan-300/30 bg-cyan-300/10 px-5 py-3 font-semibold text-cyan-50 transition hover:bg-cyan-300/20">
+            Start Game
+          </button>
+
+          <a href="/index.html" class="back-link">
+            Vissza
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[1fr_250px]">
+
+        <div class="relative">
+
+          <canvas id="game" width="600" height="600"
+            class="w-full  border border-white/10 bg-slate-950"></canvas>
+
+          <div id="overlay" class="absolute inset-0 hidden items-center justify-center  bg-black/70">
+            <div class="text-center">
+
+              <h2 class="font-display text-5xl font-bold text-white">
+                Game Over
+              </h2>
+
+              <button id="restart-btn"
+                class="mt-5 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-5 py-3 font-semibold text-cyan-50 transition hover:bg-cyan-300/20">
+                Új játék
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex flex-col gap-4">
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+
+            <p class="text-sm text-slate-400">
+              Pontszám
+            </p>
+
+            <p id="score" class="mt-2 font-display text-5xl font-bold text-cyan-200">
+              0
+            </p>
+
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+
+            <p class="text-sm text-slate-400">
+              Irányítás
+            </p>
+
+            <p class="mt-2 text-slate-200">
+              Nyilak vagy WASD
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="./src/game-2.js"></script>
+
+</body>
+
 </html>

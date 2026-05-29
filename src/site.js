@@ -5,7 +5,12 @@ const games = [
     label: '1v1',
     description: 'Amőba játék két játékos részére.',
     summary: '',
-    accent: 'bg-slate-300'
+    accent: 'bg-slate-300',
+    features: [
+      'Kétjátékos kör alapú mezőkezelés',
+      'Egyszerű nyerési feltétel ellenőrzés',
+      'Külön játéktér és állapotkezelés',
+    ],
   },
   {
     slug: 'game-2.html',
@@ -14,6 +19,11 @@ const games = [
     description: 'Mindenki ismeri.',
     summary: '',
     accent: 'bg-slate-300',
+    features: [
+      'Rácson mozgó kígyó és iránykezelés',
+      'Pontszám és étel-generálás kezelése',
+      'Játék vége feltételek elkülönítve',
+    ],
   },
   {
     slug: 'game-3.html',
@@ -22,6 +32,11 @@ const games = [
     description: 'Tron játék, ahol két játékos vagy egy játékos és az AI mérkőzhet meg egymással.',
     summary: '',
     accent: 'bg-slate-300',
+    features: [
+      'Kétjátékos vagy AI ellenfél támogatás',
+      'Pályán maradó nyomvonalak kezelése',
+      'Ütközésfigyelés és kör lezárás',
+    ],
   },
 ];
 
