@@ -18,10 +18,7 @@
   body {
     min-height: 100vh;
     font-family: var(--font-sans);
-    background:
-      radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.16), transparent 26%),
-      linear-gradient(180deg, #07111f 0%, #020617 100%);
+    background: #07111f;
     color: rgb(241 245 249);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -50,7 +47,7 @@
 
   .hero-card::before {
     content: '';
-    @apply absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.16),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(248,113,113,0.12),_transparent_30%)];
+    display: none;
   }
 
   .content-stack {
